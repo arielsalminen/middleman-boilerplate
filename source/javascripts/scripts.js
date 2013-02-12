@@ -17,7 +17,7 @@ docEl.className = docEl.className.replace(/(^|\s)no-js preload(\s|$)/, " js ");
 //
 // Can I use: http://caniuse.com/fontface
 var isFontfaceSupported = (function () {
-  if (ua.match(/(Android (1.0|1.1|1.5|1.6|2.0|2.1))|(Nokia)|(Opera (Mini|Mobi))|(w(eb)?OSBrowser)|(UCWEB)|(Windows Phone OS 7)|(XBLWP)|(ZuneWP)/)) {
+  if (ua.match(/(Android (1.0|1.1|1.5|1.6|2.0|2.1))|(Nokia)|(Opera (Mini|Mobi))|(w(eb)?OSBrowser)|(webOS)|(UCWEB)|(Windows Phone OS 7)|(XBLWP)|(ZuneWP)/)) {
     return false;
   }
   return true;
