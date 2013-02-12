@@ -29,10 +29,10 @@ Simple [Middleman](http://middlemanapp.com) starting point which includes some b
 ## Installation ##
 Run following command in the OS X command line:
 
-1. Install middleman `gem install middleman`
-2. Clone the repository `git clone git@github.com:viljamis/middleman-boilerplate.git`
-3. Open the boilerplate folder and start the Middleman server `middleman`
-4. Done! View the site at http://localhost:4567
+1. Clone the repository `git clone git@github.com:viljamis/middleman-boilerplate.git`
+2. Open the boilerplate folder and run `bundle`
+3. Start the server by running `middleman`
+4. Done! Now view the site at `http://localhost:4567`
 
 
 
