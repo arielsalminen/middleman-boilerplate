@@ -1,0 +1,14 @@
+// Compass
+@charset "utf-8";
+@import "compass/css3";
+@import "reset.css.scss";
+
+$browser-context: 16; // Default
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em
+}
+
+body {
+  font: normal em(16)/em(24) sans-serif;
+}
