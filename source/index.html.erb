@@ -4,4 +4,14 @@ description: Prototype page description
 ---
 
 <h1>Prototype</h1>
-<%= link_to "viljamis.com", "http://viljamis.com/" %>
+
+<% blog.articles[0...5].each do |article| %>
+  <article>
+    <h2>
+      <a href="<%= article.url %>"><%= article.title %></a>
+      <time><%= article.date.strftime('%b %e %Y') %></time>
+    </h2>
+    <p><%= article.summary %></p>
+    <a href="<%= article.url %>">Read more</a>
+  </article>
+<% end %>

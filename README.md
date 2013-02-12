@@ -1,6 +1,6 @@
 # Middleman boilerplate #
 
-A Middleman starting point, which includes some base SCSS styles and JavaScript which I use in almost all Middleman projects.
+Simple [Middleman](http://middlemanapp.com) (Middleman is a static site generator) starting point which includes some base SCSS styles and JavaScript.
 
 
 
