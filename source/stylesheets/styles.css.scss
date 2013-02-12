@@ -1,35 +1,117 @@
+/*
+
+____\/\\\_________/\\\____/\\\\\\\\\\\\______
+____\/\\\_______ /\\\____/\\\/////////\\_____
+____\//\\\______/\\\____\//\\\______\///_____
+_____\//\\\____/\\\______\////\\\____________
+______\//\\\__/\\\__________\////\\\_________
+_______\//\\\/\\\______________\////\\\______
+________\//\\\\\________/\\\______\//\\\_____
+_________\//\\\________\///\\\\\\\\\\\/______
+__________\///__________\////////////________
+
+  MEMO FOR CONVERSIONS:
+  75%       =   12px, percentage(12 / 16)
+  81.25%    =   13px, percentage(13 / 16)
+  87.5%     =   14px, percentage(14 / 16)
+  93.75%    =   15px, ...
+  100%      =   16px
+  106.25%   =   17px
+  112.5%    =   18px
+
+*/
+
 // Compass
 @charset "utf-8";
 @import "compass/css3";
 @import "reset.css.scss";
 
 // Converts pixels to EMs
-$browser-context: 16;
-@function em($pixels, $context: $browser-context) {
-  @return #{$pixels / $context}em;
+@function em($pixels, $context: 16) {
+  @return #{$pixels/$context}em;
 }
 
 // Media Query breakpoints
-$break-lap: em(480);
-$break-desk: em(1024);
-
-// Respond to mixin
-@mixin respond($media) {
-  @if $media == hand-only {
-    @media only screen and (max-width: $break-lap) { @content; }
-  }
-  @else if $media == lap {
-    @media only screen and (min-width: $break-lap) { @content; }
+@mixin breakpoint($media) {
+  @if $media == lap {
+    @media only screen and (min-width: em(600)) { @content; }
   }
   @else if $media == desk {
-    @media only screen and (min-width: $break-desk) { @content; }
+    @media only screen and (min-width: em(800)) { @content; }
   }
 }
 
-// Example code
+// Image replacement
+@mixin image-replacement {
+  text-indent: -9999px;
+  overflow: hidden;
+  display: block;
+}
+
+// Box sizing
+@mixin box-sizing {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+// Prevent user select
+@mixin prevent-user-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// Prevent bleed
+@mixin prevent-bleed {
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+}
+
+// Clearfix
+@mixin clearfix { *zoom: 1;
+  &:before, &:after { content: ""; display: table }
+  &:after { clear: both }
+}
+
+
+/* ------------------------------------------
+  RWD
+--------------------------------------------- */
+@viewport {
+  width: device-width;
+}
+
+@media (max-width: 400px) {
+  @-ms-viewport {
+    width: 320px;
+  }
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+.preload * {
+  @include transition(none !important);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+
+/* ------------------------------------------
+  BASE
+--------------------------------------------- */
 body {
   font: normal 100%/1.5 sans-serif;
-  @include respond(hand-only) { background: green; }
-  @include respond(lap) { font-size: 150%; background: blue; }
-  @include respond(desk) { font-size: 200%; background: red; }
+  @include breakpoint(lap) { font-size: 150%; }
+  @include breakpoint(desk) { font-size: 200%; }
 }
