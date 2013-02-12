@@ -1,6 +1,6 @@
 # Middleman boilerplate #
 
-Simple [Middleman](http://middlemanapp.com) (Middleman is a static site generator) starting point which includes some base SCSS styles and JavaScript.
+Simple [Middleman](http://middlemanapp.com) starting point which includes some base SCSS styles and JavaScript. Great for static sites with some dynamic features & a blog.
 
 
 
@@ -9,6 +9,7 @@ Simple [Middleman](http://middlemanapp.com) (Middleman is a static site generato
 .
 |-- source
 |   |-- index.html.erb
+|   |-- 2013-01-20-blogpost.html.markdown
 |   |-- javascripts
 |   |   |-- scripts.js
 |   |-- layout
