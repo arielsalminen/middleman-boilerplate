@@ -9,18 +9,18 @@ $browser-context: 16;
   @return #{$pixels / $context}em;
 }
 
-$break-small: em(480);
-$break-large: em(1024);
+$break-lap: em(480);
+$break-desk: em(1024);
 
 @mixin respondTo($media) {
   @if $media == hand {
-    @media only screen and (max-width: $break-small) { @content; }
+    @media only screen and (max-width: $break-lap) { @content; }
   }
   @else if $media == lap {
-    @media only screen and (min-width: $break-small) { @content; }
+    @media only screen and (min-width: $break-lap) { @content; }
   }
   @else if $media == desk {
-    @media only screen and (min-width: $break-large) { @content; }
+    @media only screen and (min-width: $break-desk) { @content; }
   }
 }
 
