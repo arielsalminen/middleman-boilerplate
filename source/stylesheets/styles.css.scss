@@ -3,12 +3,30 @@
 @import "compass/css3";
 @import "reset.css.scss";
 
-$browser-context: 16; // Default
+$browser-context: 16;
 
 @function em($pixels, $context: $browser-context) {
-  @return #{$pixels/$context}em
+  @return #{$pixels / $context}em;
+}
+
+$break-small: em(480);
+$break-large: em(1024);
+
+@mixin respondTo($media) {
+  @if $media == hand {
+    @media only screen and (max-width: $break-small) { @content; }
+  }
+  @else if $media == lap {
+    @media only screen and (min-width: $break-small) { @content; }
+  }
+  @else if $media == desk {
+    @media only screen and (min-width: $break-large) { @content; }
+  }
 }
 
 body {
-  font: normal em(16)/em(24) sans-serif;
+  font: normal 100%/1.5 sans-serif;
+  @include respondTo(hand) { background: green; }
+  @include respondTo(lap) { font-size: 150%; background: blue; }
+  @include respondTo(desk) { font-size: 200%; background: red; }
 }
