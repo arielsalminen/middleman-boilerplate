@@ -3,17 +3,19 @@
 @import "compass/css3";
 @import "reset.css.scss";
 
+// Converts pixels to EMs
 $browser-context: 16;
-
 @function em($pixels, $context: $browser-context) {
   @return #{$pixels / $context}em;
 }
 
+// Media Query breakpoints
 $break-lap: em(480);
 $break-desk: em(1024);
 
-@mixin respondTo($media) {
-  @if $media == hand {
+// Respond to mixin
+@mixin respond($media) {
+  @if $media == hand-only {
     @media only screen and (max-width: $break-lap) { @content; }
   }
   @else if $media == lap {
@@ -24,9 +26,10 @@ $break-desk: em(1024);
   }
 }
 
+// Example code
 body {
   font: normal 100%/1.5 sans-serif;
-  @include respondTo(hand) { background: green; }
-  @include respondTo(lap) { font-size: 150%; background: blue; }
-  @include respondTo(desk) { font-size: 200%; background: red; }
+  @include respond(hand-only) { background: green; }
+  @include respond(lap) { font-size: 150%; background: blue; }
+  @include respond(desk) { font-size: 200%; background: red; }
 }
