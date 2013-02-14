@@ -57,4 +57,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Changelog ##
 
 v0.2 (2013-02-14) - Adds detectMQ.js and fix to get Windows Phone 8 to recognize CSS pixels rather than device pixels
+
 v0.1 (2013-02-12) - Initial version
