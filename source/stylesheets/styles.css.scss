@@ -51,6 +51,11 @@ img, video {
   @include transition(none !important);
 }
 
+body:after {
+  content: "hand";
+  display: none;
+}
+
 /* ------------------------------------------
   BASE
 --------------------------------------------- */
@@ -60,6 +65,12 @@ img, video {
 
 body {
   font: normal 100%/1.5 sans-serif;
-  @include breakpoint(lap) { font-size: 150%; }
-  @include breakpoint(desk) { font-size: 200%; }
+  @include breakpoint(lap) {
+    font-size: 150%;
+    &:after { content: "lap" }
+  }
+  @include breakpoint(desk) {
+    font-size: 200%;
+    &:after { content: "desk" }
+  }
 }
