@@ -1,11 +1,24 @@
 // Variables
 var hasTouch = false,
   ua = navigator.userAgent,
-  docEl = document.documentElement;
+  doc = document,
+  docEl = doc.documentElement;
 
 
 // "Detect" JavaScript support
 docEl.className = docEl.className.replace(/(^|\s)no-js preload(\s|$)/, " js ");
+
+// A fix is on the way to get Windows Phone 8 to recognize
+// CSS pixels rather than device pixels (which is preferred behavior).
+// In the meantime, use this javascript before any other script
+// if you need an immediate patch:
+//
+// http://trentwalton.com/2013/01/16/windows-phone-8-viewport-fix/
+if (ua.match(/IEMobile\/10\.0/)) {
+  var msViewportStyle = doc.createElement("style");
+  msViewportStyle.appendChild(doc.createTextNode("@-ms-viewport{width:auto!important}"));
+  doc.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+}
 
 
 // Detect "font-face" support
