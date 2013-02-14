@@ -11,7 +11,11 @@ Simple [Middleman](http://middlemanapp.com) starting point which includes some b
 |   |-- index.html.erb
 |   |-- 2013-01-20-blogpost.html.markdown
 |   |-- javascripts
-|   |   |-- scripts.js
+|   |   |-- all.js
+|   |   |-- init.js
+|   |   |-- mediaquery-dependant-scripts.js
+|   |   |-- mediaquery.js
+|   |   |-- regular-scripts.js
 |   |-- layout
 |   |   |-- layout.erb
 |   |-- stylesheets
