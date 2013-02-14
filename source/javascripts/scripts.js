@@ -5,8 +5,11 @@ var hasTouch = false,
   docEl = doc.documentElement;
 
 
+
 // "Detect" JavaScript support
 docEl.className = docEl.className.replace(/(^|\s)no-js preload(\s|$)/, " js ");
+
+
 
 // A fix is on the way to get Windows Phone 8 to recognize
 // CSS pixels rather than device pixels (which is preferred behavior).
@@ -19,6 +22,7 @@ if (ua.match(/IEMobile\/10\.0/)) {
   msViewportStyle.appendChild(doc.createTextNode("@-ms-viewport{width:auto!important}"));
   doc.getElementsByTagName("head")[0].appendChild(msViewportStyle);
 }
+
 
 
 // Detect "font-face" support
@@ -35,12 +39,11 @@ var isFontfaceSupported = (function () {
   }
   return true;
 })();
-
-
 // Was "font-face" supported?
 if (isFontfaceSupported) {
   docEl.className = docEl.className.replace(/(^|\s)no-fontface(\s|$)/, " fontface ");
 }
+
 
 
 // Detect "touch" support and act accordingly
@@ -53,6 +56,8 @@ if (("ontouchstart" in window) || window.DocumentTouch && document instanceof Do
   hasTouch = true;
 }
 
+
+
 // Detect input type=file support
 var isFileInputSupported = (function () {
   // Handle devices which falsely report support
@@ -64,7 +69,6 @@ var isFileInputSupported = (function () {
   el.type = "file";
   return !el.disabled;
 })();
-
 // Was "file input" supported?
 if (isFileInputSupported) {
   docEl.className = docEl.className.replace(/(^|\s)no-fileinput(\s|$)/, " fileinput ");
