@@ -1,4 +1,3 @@
 //= require "init"
-//= require "mediaquery-dependant-scripts"
-//= require "mediaquery"
-//= require "regular-scripts"
+//= require "respond"
+//= require "scripts"
