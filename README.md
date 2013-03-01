@@ -13,9 +13,8 @@ Simple [Middleman](http://middlemanapp.com) starting point which includes some b
 |   |-- javascripts
 |   |   |-- all.js
 |   |   |-- init.js
-|   |   |-- mediaquery-dependant-scripts.js
-|   |   |-- mediaquery.js
-|   |   |-- regular-scripts.js
+|   |   |-- respond.js
+|   |   |-- scripts.js
 |   |-- layout
 |   |   |-- layout.erb
 |   |-- stylesheets
