@@ -32,6 +32,37 @@ __________\///__________\////////////________
   }
 }
 
+@mixin clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: "";
+    display: table
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin image-replacement {
+  text-indent: -9999px;
+  overflow: hidden;
+  display: block;
+}
+
+@mixin prevent-user-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin prevent-bleed {
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+}
+
 /* ------------------------------------------
   RWD
 --------------------------------------------- */
@@ -51,11 +82,6 @@ img, video {
   @include transition(none !important);
 }
 
-body:after {
-  content: "hand";
-  display: none;
-}
-
 /* ------------------------------------------
   BASE
 --------------------------------------------- */
@@ -67,10 +93,38 @@ body {
   font: normal 100%/1.5 sans-serif;
   @include breakpoint(lap) {
     font-size: 150%;
-    &:after { content: "lap" }
   }
   @include breakpoint(desk) {
     font-size: 200%;
-    &:after { content: "desk" }
   }
+}
+
+
+/* ------------------------------------------
+  NAVIGATION
+--------------------------------------------- */
+#menu {
+
+  @include breakpoint(lap) {
+    display: none;
+  }
+
+}
+
+.js #nav {
+  height: 0;
+  overflow: hidden;
+  @include transition(height .5s ease);
+  @include breakpoint(lap) {
+    height: auto;
+  }
+
+  &.opened {
+    height: 12em
+  }
+
+  .low_level_support & {
+    @include transition(none !important);
+  }
+
 }
