@@ -8,6 +8,16 @@ var hasTouch = false,
 // "Detect" JavaScript support
 docEl.className = docEl.className.replace(/(^|\s)no-js preload(\s|$)/, " js ");
 
+// If Windows
+if (ua.match(/(Windows)/)) {
+  docEl.className = docEl.className + ' windows ';
+}
+
+// If low support
+if (ua.match(/(Windows Phone OS 7)|(Meego)/)) {
+  docEl.className = docEl.className + ' low_level_support ';
+}
+
 // A fix is on the way to get Windows Phone 8 to recognize
 // CSS pixels rather than device pixels (which is preferred behavior).
 // In the meantime, use this javascript before any other script
