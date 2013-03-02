@@ -13,7 +13,6 @@ Simple [Middleman](http://middlemanapp.com) starting point which includes some b
 |   |-- javascripts
 |   |   |-- all.js
 |   |   |-- init.js
-|   |   |-- respond.js
 |   |   |-- scripts.js
 |   |-- layout
 |   |   |-- layout.erb
