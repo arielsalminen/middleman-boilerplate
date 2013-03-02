@@ -54,6 +54,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Changelog ##
 
+v0.31 (2013-03-02) - Cleaning up the code
+
 v0.3 (2013-03-01) - Adds responsive navigation pattern and common Sass mixins (+ bug fixes).
 
 v0.2 (2013-02-14) - Adds detectMQ.js and fix to get Windows Phone 8 to recognize CSS pixels rather than device pixels
