@@ -104,11 +104,9 @@ body {
   NAVIGATION
 --------------------------------------------- */
 #menu {
-
   @include breakpoint(lap) {
     display: none;
   }
-
 }
 
 .js #nav {
@@ -118,13 +116,7 @@ body {
   @include breakpoint(lap) {
     height: auto;
   }
-
   &.opened {
     height: 12em
   }
-
-  .low_level_support & {
-    @include transition(none !important);
-  }
-
 }
