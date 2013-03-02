@@ -13,7 +13,7 @@ if (ua.match(/(Windows)/)) {
   docEl.className = docEl.className + ' windows ';
 }
 
-// If low support
+// Low level support
 if (ua.match(/(Windows Phone OS 7)|(Meego)/)) {
   docEl.className = docEl.className + ' low_level_support ';
 }
