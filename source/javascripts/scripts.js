@@ -144,44 +144,34 @@ window.matchMedia = window.matchMedia || (function (doc, undefinedx) {
 (function (w) {
 
   w.navigation = function () {
-
     var nav_open = false,
       doc = w.document,
       nav = doc.getElementById('nav'),
-      nav_toggle = doc.getElementById('menu');
-    
+      nav_toggle = doc.getElementById('menu'),
+      nav_function = function () {
+        if (nav_open === false) {
+          nav.className = nav.className.replace('closed', 'opened');
+          nav_open = true;
+        } else {
+          nav.className = nav.className.replace('opened', 'closed');
+          nav_open = false;
+        }
+        return false;
+      };
+
     // The touchstart event fires before the mousedown event, and therefore
     // we can wipe the mousedown event handler before it’s ever executed
     // http://www.quirksmode.org/blog/archives/2010/02/do_we_need_touc.html
     nav_toggle.onmousedown = function () {
-      // initialize mouse interface
-      if (nav_open === false) {
-        nav.className = nav.className.replace('closed', 'opened');
-        nav_open = true;
-      } else {
-        nav.className = nav.className.replace('opened', 'closed');
-        nav_open = false;
-      }
-      return false;
+      nav_function();
     };
-
-    nav_toggle.ontouchstart = function (e) {
+    nav_toggle.ontouchstart = function () {
       nav_toggle.onmousedown = null;
-      // initialize touch interface
-      if (nav_open === false) {
-        nav.className = nav.className.replace('closed', 'opened');
-        nav_open = true;
-      } else {
-        nav.className = nav.className.replace('opened', 'closed');
-        nav_open = false;
-      }
-      return false;
+      nav_function();
     };
-
     nav_toggle.onclick = function () {
       return false;
     };
-
   }
 
   // Run on domready (w.load as a fallback)
