@@ -47,10 +47,10 @@ if (isFontfaceSupported) {
 
 // Detect "touch" support and act accordingly
 //
-// Windows Phone doesn't really support touch events in JS
+// Windows Phone OS 7 doesn't really support touch events in JS
 // but it's still included here as it has a touch screen.
 // Remove ua.match part if you don't want it in. ;(
-if (("ontouchstart" in window) || window.DocumentTouch && document instanceof DocumentTouch || ua.match(/(Windows Phone OS)/)) {
+if (("ontouchstart" in window) || window.DocumentTouch && document instanceof DocumentTouch || navigator.msMaxTouchPoints || ua.match(/(Windows Phone OS 7)/)) {
   docEl.className = docEl.className.replace(/(^|\s)no-touch(\s|$)/, " touch ");
   hasTouch = true;
 }
