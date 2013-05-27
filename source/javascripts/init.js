@@ -1,16 +1,16 @@
-
-// Variables
 var hasTouch = false,
   ua = navigator.userAgent,
   doc = document,
   docEl = doc.documentElement;
 
 // "Detect" JavaScript support
-docEl.className = docEl.className.replace(/(^|\s)no-js preload(\s|$)/, " js ");
+docEl.className = docEl.className.replace(/(^|\s)no-js preloading(\s|$)/, " js loaded ");
 
-// If Windows
-if (ua.match(/(Windows)/)) {
-  docEl.className = docEl.className + ' windows ';
+// Detect modern browsers
+if ("querySelector" in document && 
+    "localStorage" in window && 
+    "addEventListener" in window) {
+  docEl.className = docEl.className.replace(/(^|\s)no-modern(\s|$)/, " modern ");
 }
 
 // A fix is on the way to get Windows Phone 8 to recognize

@@ -1,2 +1,0 @@
-//= require "init"
-//= require "scripts"
