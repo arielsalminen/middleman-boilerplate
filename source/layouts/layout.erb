@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html class="no-js preload no-fontface no-fileinput no-touch" lang="en">
+<!--[if lte IE 8]><html class="no-js preloading no-modern no-fontface no-touch ie" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js preloading no-modern no-fontface no-touch" lang="en"><!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <title><%= data.page.title || "Prototype" %></title>
-    <meta name="author" content="Prototype">
+    <meta name="author" content="@viljamis">
     <% if data.page.description %>
       <meta name="description" content="<%= data.page.description %>">
     <% end %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-title" content="Prototype">
     <%= stylesheet_link_tag "styles" %>
-    <%= javascript_include_tag  "all" %>
+    <%= javascript_include_tag "head" %>
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="">
     <link rel="alternate" type="application/rss+xml" title="Prototype" href="">
   </head>
   <body class="<%= page_classes %>">
     <%= yield %>
+    <%= javascript_include_tag "scripts" %>
   </body>
 </html>
