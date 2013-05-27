@@ -17,6 +17,10 @@ __________\///__________\////////////________
 @import "compass/css3";
 @import "reset.css.scss";
 
+// Colors
+$color-base: #000;
+$color-inverse: #fff;
+
 // Converts pixels to EMs
 @function em($pixels, $context: 16) {
   @return #{$pixels/$context}em;
@@ -24,11 +28,23 @@ __________\///__________\////////////________
 
 // Media Query breakpoints
 @mixin breakpoint($media) {
-  @if $media == lap {
-    @media only screen and (min-width: em(600)) { @content; }
+  @if $media == medium {
+    @media only screen and (min-width: 30em) { @content; }
   }
-  @else if $media == desk {
-    @media only screen and (min-width: em(800)) { @content; }
+  @else if $media == large {
+    @media only screen and (min-width: 67.8em) { @content; }
+  }
+}
+
+// High-DPI
+@mixin retina($ratio: 1.5) {
+  $dpi: $ratio * 96;
+  $opera-ratio: $ratio * 100;
+  @media only screen and (-webkit-min-device-pixel-ratio: #{$ratio}),
+         only screen and (     -o-min-device-pixel-ratio: '#{$opera-ratio}/100'),
+         only screen and (                min-resolution: #{$dpi}dpi),
+         only screen and (                min-resolution: #{$ratio}dppx) {
+    @content;
   }
 }
 
@@ -57,66 +73,26 @@ __________\///__________\////////////________
   user-select: none;
 }
 
-@mixin prevent-bleed {
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding;
-  background-clip: padding-box;
-}
-
-/* ------------------------------------------
-  RWD
---------------------------------------------- */
-@-webkit-viewport {width:device-width}
-@-moz-viewport {width:device-width}
-@-ms-viewport {width:device-width}
-@-o-viewport {width:device-width}
-@viewport {width:device-width}
-
-img, video {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-}
-
-.preload * {
-  @include transition(none !important);
-}
-
 /* ------------------------------------------
   BASE
 --------------------------------------------- */
-* {
+
+.preloading * {
+  @include transition(none !important);
+}
+
+input,
+textarea {
   @include box-sizing("border-box");
 }
 
 body {
   font: normal 100%/1.5 sans-serif;
-  @include breakpoint(lap) {
+  @include breakpoint(medium) {
     font-size: 150%;
   }
-  @include breakpoint(desk) {
+  @include breakpoint(large) {
     font-size: 200%;
   }
 }
 
-
-/* ------------------------------------------
-  NAVIGATION
---------------------------------------------- */
-#menu {
-  @include breakpoint(lap) {
-    display: none;
-  }
-}
-
-.js #nav {
-  height: 0;
-  overflow: hidden;
-  @include transition(height .5s ease);
-  @include breakpoint(lap) {
-    height: auto;
-  }
-  &.opened {
-    height: 12em
-  }
-}

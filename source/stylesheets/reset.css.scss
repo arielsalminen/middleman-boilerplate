@@ -16,6 +16,24 @@ h1, h2, h3, h4, h5, h6, small {
   font-size: 1em;
 }
 
+@-webkit-viewport {width:device-width}
+@-moz-viewport {width:device-width}
+@-ms-viewport {width:device-width}
+@-o-viewport {width:device-width}
+@viewport {width:device-width}
+
+img, video {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 /* ------------------------------------------
   CONSISTENCY FIXES
 --------------------------------------------- */
