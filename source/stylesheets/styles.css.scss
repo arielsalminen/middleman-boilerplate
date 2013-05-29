@@ -134,38 +134,39 @@ body {
   }
 }
 
-/* BUTTONS
+/* RESPONSIVE NAV
 --------------------------------------------- */
-.btn {
-  display: block;
-  font: normal bold em(14, 20)/2 $font-main;
-  letter-spacing: -0.01em;
-  text-shadow: 0 -1px 0 rgba(0,0,0, .3);
-  padding: .1em 5%;
-  color: $color-light;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-font-smoothing: antialiased;
-  @include border-radius(4px);
-  @include prevent-user-select;
-  @include box-sizing(border-box);
-  @include box-shadow(inset 0 0 0 1px rgba($color-light, .02));
-  @include background-image(linear-gradient(
-    lighten($color-dark, 10%),
-    lighten($color-dark, 5%)
-  ));
-  &:hover {
-    @include background-image(linear-gradient(
-      lighten($color-dark, 15%),
-      lighten($color-dark, 10%)
-    ));
+#nav {
+  &.opened {
+    max-height: 9999px;
   }
-  &:active {
-    @include box-shadow(inset 0 0 0 1px rgba($color-light, .1));
-    @include background-image(linear-gradient(
-      darken($color-dark, 5%),
-      lighten($color-dark, 10%)
-    ));
+  .js & {
+    clip: rect(0 0 0 0);
+    max-height: 0;
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    zoom: 1;
+    @include breakpoint(large) {
+      position: relative;
+      max-height: none;
+    }
   }
-  .ios &.openinapp { display: block }
-  &.openinapp, .ios &.viewinappstore { display: none }
+   ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: block;
+    list-style: none;
+  }
+   li {
+    width: 100%;
+    display: block;
+  }
+}
+
+#nav-toggle {
+  @include breakpoint(large) {
+    display: none;
+  }
 }
