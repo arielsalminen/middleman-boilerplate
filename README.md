@@ -39,7 +39,7 @@ Run following command in the OS X command line:
 2. Open the boilerplate folder and run `bundle`
 3. Start the server by running `middleman`
 4. Done! Now view the site at `http://localhost:4567`
-(5. To deploy the site run `middleman build`)
+5. To deploy the site to a server, run `middleman build`
 
 
 
