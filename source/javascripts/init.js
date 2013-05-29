@@ -7,7 +7,9 @@ var hasTouch = false,
 docEl.className = docEl.className.replace(/(^|\s)no-js preloading(\s|$)/, " js loaded ");
 
 // Detect modern browsers
-if ("querySelector" in document && "localStorage" in window && "addEventListener" in window) {
+if ("querySelector" in document && 
+    "localStorage" in window && 
+    "addEventListener" in window) {
   docEl.className = docEl.className.replace(/(^|\s)no-modern(\s|$)/, " modern ");
 }
 
@@ -48,7 +50,7 @@ if (isFontfaceSupported) {
 // Windows Phone OS 7 doesn't really support touch events in JS
 // but it's still included here as it has a touch screen.
 // Remove ua.match part if you don't want it in. ;(
-if (("ontouchstart" in window) || window.DocumentTouch && document instanceof DocumentTouch || navigator.msMaxTouchPoints)) {
+if (("ontouchstart" in window) || window.DocumentTouch && document instanceof DocumentTouch || navigator.msMaxTouchPoints) {
   docEl.className = docEl.className.replace(/(^|\s)no-touch(\s|$)/, " touch ");
   hasTouch = true;
 }
