@@ -18,8 +18,11 @@ __________\///__________\////////////________
 @import "reset.css.scss";
 
 // Colors
-$color-base: #000;
-$color-inverse: #fff;
+$color-dark: #000;
+$color-light: #fff;
+
+// Fonts
+$font-main: sans-serif;
 
 // Converts pixels to EMs
 @function em($pixels, $context: 16) {
@@ -29,10 +32,13 @@ $color-inverse: #fff;
 // Media Query breakpoints
 @mixin breakpoint($media) {
   @if $media == medium {
-    @media only screen and (min-width: 30em) { @content; }
+    @media only screen and (min-width: 28em) { @content; }
   }
   @else if $media == large {
-    @media only screen and (min-width: 67.8em) { @content; }
+    @media only screen and (min-width: 40em) { @content; }
+  }
+  @else if $media == small {
+    @media only screen and (max-width: 17.4em) { @content; }
   }
 }
 
@@ -48,6 +54,7 @@ $color-inverse: #fff;
   }
 }
 
+// Clearfix
 @mixin clearfix {
   *zoom: 1;
   &:before, &:after {
@@ -59,24 +66,47 @@ $color-inverse: #fff;
   }
 }
 
+// Image replacement
 @mixin image-replacement {
   text-indent: -9999px;
   overflow: hidden;
   display: block;
 }
 
+// Prevent user select
 @mixin prevent-user-select {
-  -webkit-touch-callout: none;
+  //-webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-/* ------------------------------------------
-  BASE
+/* SELECTIONS
 --------------------------------------------- */
+::-moz-selection {
+  background: $color-dark;
+  color: $color-light;
+}
 
+::selection {
+  background: $color-dark;
+  color: $color-light;
+}
+
+img::selection {
+  background: transparent;
+}
+
+img::-moz-selection {
+  background: transparent;
+}
+::selection:window-inactive {
+  background: lighten($color-dark, 50%);
+}
+
+/* BASE
+--------------------------------------------- */
 .preloading * {
   @include transition(none !important);
 }
@@ -86,8 +116,16 @@ textarea {
   @include box-sizing("border-box");
 }
 
+html {
+  background: $color-light;
+}
+
 body {
+  color: $color-dark;
   font: normal 100%/1.5 sans-serif;
+  @include breakpoint(small) {
+    font-size: 65.2%;
+  }
   @include breakpoint(medium) {
     font-size: 150%;
   }
@@ -96,3 +134,38 @@ body {
   }
 }
 
+/* BUTTONS
+--------------------------------------------- */
+.btn {
+  display: block;
+  font: normal bold em(14, 20)/2 $font-main;
+  letter-spacing: -0.01em;
+  text-shadow: 0 -1px 0 rgba(0,0,0, .3);
+  padding: .1em 5%;
+  color: $color-light;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-font-smoothing: antialiased;
+  @include border-radius(4px);
+  @include prevent-user-select;
+  @include box-sizing(border-box);
+  @include box-shadow(inset 0 0 0 1px rgba($color-light, .02));
+  @include background-image(linear-gradient(
+    lighten($color-dark, 10%),
+    lighten($color-dark, 5%)
+  ));
+  &:hover {
+    @include background-image(linear-gradient(
+      lighten($color-dark, 15%),
+      lighten($color-dark, 10%)
+    ));
+  }
+  &:active {
+    @include box-shadow(inset 0 0 0 1px rgba($color-light, .1));
+    @include background-image(linear-gradient(
+      darken($color-dark, 5%),
+      lighten($color-dark, 10%)
+    ));
+  }
+  .ios &.openinapp { display: block }
+  &.openinapp, .ios &.viewinappstore { display: none }
+}
