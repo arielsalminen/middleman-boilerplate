@@ -12,11 +12,13 @@ Simple [Middleman](http://middlemanapp.com) starting point which includes some b
 |   |-- 2013-01-20-blogpost.html.markdown
 |   |-- javascripts
 |   |   |-- enquire.js
+|   |   |-- fastclick.js
 |   |   |-- footer.js
 |   |   |-- header.js
 |   |   |-- init.js
 |   |   |-- matchMedia-listener.js
 |   |   |-- matchMedia.js
+|   |   |-- responsive-nav.js
 |   |   |-- scripts.js
 |   |-- layout
 |   |   |-- layout.erb

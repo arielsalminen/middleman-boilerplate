@@ -11,10 +11,20 @@ if ("querySelector" in document &&
     "localStorage" in window && 
     "addEventListener" in window) {
 
-  // $("somelink")[0].on('touchstart', handleTouch);
   var doc = document,
+    win = window,
     $ = doc.querySelectorAll.bind(doc);
     Element.prototype.on = Element.prototype.addEventListener;
+
+  // $(".somelink")[0].on("touchstart", doSomething);
+  
+  // Init Responsive Nav
+  var navigation = responsiveNav("#nav");
+
+  // Init fast click
+  win.addEventListener("load", function() {
+    FastClick.attach(doc.body);
+  }, false);
 
   // Enquire usage
   enquire.register("screen and (min-width: 30em)", {
