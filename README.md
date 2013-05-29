@@ -61,7 +61,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Changelog ##
 
-v0.4 (2013-05-29) - New JS structure and more Sass helpers
+v0.45 (2013-05-29) - Adds responsive-nav.js and fastclick + other fixes
+
+v0.4 (2013-05-29) - Updates Gems, new JS structure and better Sass helpers
 
 v0.31 (2013-03-02) - Cleaning up the code
 
