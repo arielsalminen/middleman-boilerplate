@@ -59,6 +59,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Changelog ##
 
+v0.4 (2013-05-29) - New JS structure and more Sass helpers
+
 v0.31 (2013-03-02) - Cleaning up the code
 
 v0.3 (2013-03-01) - Adds responsive navigation pattern and common Sass mixins (+ bug fixes).
