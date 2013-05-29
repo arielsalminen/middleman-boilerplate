@@ -11,12 +11,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-title" content="Prototype">
     <%= stylesheet_link_tag "styles" %>
-    <%= javascript_include_tag "head" %>
+    <%= javascript_include_tag "header" %>
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="">
     <link rel="alternate" type="application/rss+xml" title="Prototype" href="">
   </head>
   <body class="<%= page_classes %>">
     <%= yield %>
-    <%= javascript_include_tag "scripts" %>
+    <%= javascript_include_tag "footer" %>
   </body>
 </html>
