@@ -11,8 +11,12 @@ Simple [Middleman](http://middlemanapp.com) starting point which includes some b
 |   |-- index.html.erb
 |   |-- 2013-01-20-blogpost.html.markdown
 |   |-- javascripts
-|   |   |-- all.js
+|   |   |-- enquire.js
+|   |   |-- footer.js
+|   |   |-- header.js
 |   |   |-- init.js
+|   |   |-- matchMedia-listener.js
+|   |   |-- matchMedia.js
 |   |   |-- scripts.js
 |   |-- layout
 |   |   |-- layout.erb
@@ -35,6 +39,7 @@ Run following command in the OS X command line:
 2. Open the boilerplate folder and run `bundle`
 3. Start the server by running `middleman`
 4. Done! Now view the site at `http://localhost:4567`
+(5. To deploy the site run `middleman build`)
 
 
 
